@@ -20,7 +20,6 @@ namespace AgData_Assesment_Part2
             driver.Manage().Window.Maximize();
         }
 
-        [Test, Order(1)]
         public void HoverAndClickSubMenu()
         {
             // 2. On the top navigation menu click on "Company" > "Overview"
@@ -38,7 +37,6 @@ namespace AgData_Assesment_Part2
         }
 
 
-        [Test, Order(2)]
         public void GetCompanyPageValues()   
         {
             // 3. On the page, get back all the Values on the page in a LIST
@@ -61,7 +59,6 @@ namespace AgData_Assesment_Part2
             }
         }
         
-        [Test, Order(3)]
         public void ClickLetsGetStartedBtn() 
         {
             // 4. Click on the "Let's Get Started" button at the bottom
@@ -77,6 +74,14 @@ namespace AgData_Assesment_Part2
             // Validate by Page Title
             Assert.IsTrue(driver.Title.Contains("Contact - AGDATA"), "The Contact page title was not found.");
         }
+
+        [Test]
+        public void AgDataUITest()
+        {
+            HoverAndClickSubMenu();
+            GetCompanyPageValues();
+            ClickLetsGetStartedBtn();
+        }
         
         [TearDown]
         public void CloseBrowser()
@@ -88,6 +93,7 @@ namespace AgData_Assesment_Part2
             }            
         }
        
+
         public void Dispose()
         {
             // Dispose WebDriver
